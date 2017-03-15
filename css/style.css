@@ -25,3 +25,10 @@ header {
     padding: 10px;
     background-color: #da7071;
 }
+
+button {
+    width: 60%;
+    position: relative;
+    top: 50%;
+    left: 20%;
+}
