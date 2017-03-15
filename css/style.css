@@ -1,4 +1,27 @@
 /* STYLE.CSS */
+* {
+    font-family: Raleway;
+}
+
 body {
-    background-color: black;
+    background-color: deepskyblue;
+}
+
+h1 {
+    font-weight: 600;
+    color: white;
+}
+
+header {
+    margin-bottom: 2em;
+}
+
+.movies {
+    margin-bottom: 2em;
+}
+
+.submit-button {
+    margin: auto;
+    padding: 10px;
+    background-color: #da7071;
 }
