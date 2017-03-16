@@ -1,45 +1,22 @@
 /* STYLE.CSS */
 * {
     font-family: Lato;
-    border: 1px solid red;
+    border: 0px solid red;
 }
-
-/* SECTIONS */
 
 body {
     background-color: #122434;
+    color: #dadada;
 }
 
 header {
     margin-bottom: 2em;
 }
 
-.content {
-    text-align: center;
-    margin: 0 auto 0 auto;
-    width: 900px;
-    max-width: 100%;
-}
-
-.movie {
-    width: 250px;
-    max-width: 20%;
-    margin: 0 20px;
-    display: inline-block;
-}
-
-/* END OF SECTIONS */
-
 h1 {
     font-weight: 600;
     color: white;
-}
-
-.test {
-    background-color: green;
-    height: 300px;
-    max-height: 150px;
-    max-width: 200px;
+    font-size: 45px;
 }
 
 input, button {
@@ -51,40 +28,113 @@ input, button {
 input {
     position: relative;
     max-width: 400px;
-    width: calc(100% - 2em)
-    font-size: 16px;
-    border-bottom: 3px solid #353535;
+    width: calc(100% - 2em);
+    font-size: 16px;    
     text-align: center;
+    font-weight: 700;
+    margin-bottom: 2px;
 }
 
-button {
-    width: 60%;
+.movie-search {
+    width: 90%;    
     position: relative;
-    top: 50%;
-    left: 20%;
+    margin: 0 auto 20px auto;
+}
+
+.submit-button {
+    font-weight: 600;
+    font-size: 18px;
+    padding: 10px;
+    background-color: #da7071;    
+    width: 90%;
+}
+
+.submit-button:hover {
+    background-color: #ff4446;
 }
 
 label {
     display: block;
     font-size: 16px;
     font-weight: 800;
-}
-.movie {
-}
-
-.movie-search {
-    width: 100%;
-}
-
-.movies {
-    margin-bottom: 2em;
+    text-align: left;
+    border-top: 3px solid #da7071;
+    width: 90%;
+    margin: 0 auto 0 auto;
+    color: #da7071;
 }
 
-.submit-button {
-    margin: auto;
-    padding: 10px;
-    background-color: #da7071;
+.movie-search:hover label{
+    border-top: 5px solid #da7071;
+    color: #da7071;
 }
 
+.content {
+    text-align: center;
+    margin: 0 auto 0 auto;
+    width: 900px;
+    max-width: 100%;
+}
 
+.movie-poster {
+    width: 250px;
+    height: 370px;
+    background-color: #0b0b17;
+    background-size: cover;
+    position: relative;
+    margin: 0 auto 0 auto;
+}
 
+.test {    
+    background-image: url("http://img.omdbapi.com/?i=tt0453562&apikey=db496034");
+}
+
+.movie-name {
+    background-color: #0b0b17;
+    margin-top: 0px;
+    width: 250px;
+    height: auto;
+    padding: 10px 5px;    
+    margin: 0 auto 0 auto;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+/* GRID START */
+/* SECTIONS */
+
+.section {
+	clear: both;
+	padding: 0px;
+	margin: 0px;
+    margin-bottom: 20px;
+}
+
+/*  COLUMN SETUP  */
+
+.col {
+	display: block;
+	float:left;
+	margin: 1% 0 1% 1.6%;
+}
+.col:first-child { margin-left: 0; }
+
+/*  GROUPING  */
+.group:before,
+.group:after { content:""; display:table; }
+.group:after { clear:both;}
+.group { zoom:1; /* For IE 6/7 */ }
+
+/*  GRID OF THREE  */
+.span_3_of_3 { width: 100%; }
+.span_2_of_3 { width: 66.13%; }
+.span_1_of_3 { width: 32.26%; }
+
+/*  GO FULL WIDTH BELOW 480 PIXELS */
+@media only screen and (max-width: 480px) {
+	.col {  margin: 1% 0 1% 0%; }
+	.span_3_of_3, .span_2_of_3, .span_1_of_3 { width: 100%; }
+}
+
+/* END OF SECTIONS */
+/* GRID END */
