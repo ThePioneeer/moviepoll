@@ -35,6 +35,10 @@ input {
     margin-bottom: 2px;
 }
 
+.movie {
+    margin-bottom: 40px !important;
+}
+
 .movie-search {
     width: 90%;    
     position: relative;
@@ -62,6 +66,7 @@ label {
     width: 90%;
     margin: 0 auto 0 auto;
     color: #da7071;
+    padding-top: 5px;
 }
 
 .movie-search:hover label{
@@ -107,7 +112,6 @@ label {
 	clear: both;
 	padding: 0px;
 	margin: 0px;
-    margin-bottom: 20px;
 }
 
 /*  COLUMN SETUP  */
