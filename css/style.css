@@ -2,6 +2,7 @@
 * {
     font-family: Lato;
     border: 0px solid red;
+    box-sizing: border-box;
 }
 
 body {
@@ -17,6 +18,7 @@ h1 {
     font-weight: 600;
     color: white;
     font-size: 45px;
+    margin: 60px;
 }
 
 input, button {
@@ -50,7 +52,7 @@ input {
     font-size: 18px;
     padding: 10px;
     background-color: #da7071;    
-    width: 90%;
+    width: 50% !important;
 }
 
 .submit-button:hover {
@@ -90,6 +92,35 @@ label {
     margin: 0 auto 0 auto;
 }
 
+.movie-rating {
+    border-radius: 15px;
+    color: #000;
+    background-color: #ffdb65;
+    position: absolute;
+    right: -15px;
+    top: -15px;
+    font-size: 20px;
+    padding: 8px;
+}
+
+.movie-year {
+    color: #000;
+    background-color: #0b0b17;
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    font-size: 20px;
+    padding: 5px;
+    color: #fff;
+}
+
+.count {
+    margin-top: 20px;
+    position: relative;
+    top: -15px;
+    font-size: 36px;
+}
+
 .test {    
     background-image: url("http://img.omdbapi.com/?i=tt0453562&apikey=db496034");
 }
@@ -100,9 +131,55 @@ label {
     width: 250px;
     height: auto;
     padding: 10px 5px;    
-    margin: 0 auto 0 auto;
+    margin: 0 auto 20px auto;
     font-size: 16px;
     font-weight: 600;
+}
+
+.press button {
+  color: #fff;
+  background-color: #da7071;
+  border: none;
+  -webkit-box-shadow: 0 10px #190505;
+  -moz-box-shadow: 0 10px #190505;
+  box-shadow: 0 10px #190505;
+  width: 100px;
+}
+.press button:hover,
+.press button.hover {
+  background-color: #ff4446;
+}
+.press button:active,
+.press button.active {
+  background-color: #ff4446;
+  -webkit-box-shadow: 0 5px #190505;
+  -moz-box-shadow: 0 5px #190505;
+  box-shadow: 0 5px #190505;
+  -webkit-transform: translateY(5px);
+  -moz-transform: translateY(5px);
+  -ms-transform: translateY(5px);
+  -o-transform: translateY(5px);
+  transform: translateY(5px);
+}
+@media all and (max-width: 960px) { 
+  button {
+    font-size: 30px
+  }
+}
+@media all and (max-width: 720px) { 
+  button {
+    font-size: 20px;
+    padding: 10px 30px;
+  }
+}
+@media all and (max-width: 540px) { 
+  section {
+    text-align: center
+  }
+  button {
+    margin: 0 10px 20px 10px;
+    font-size: 16px;
+  }
 }
 
 /* GRID START */
