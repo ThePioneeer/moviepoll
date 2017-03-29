@@ -27,7 +27,7 @@ function setTitle(movie, id){
     if(movie.Title == undefined){
         document.getElementById(id + "-poster").style.backgroundImage = "";
         document.getElementById(id + "-rating").innerText = "-"
-        document.getElementById(id + "-name").innerText = "Vali film...";
+        document.getElementById(id + "-name").innerText = "Palun vali film...";
         document.getElementById(id + "-year").innerText = "";
         document.getElementById(id + "-link").className = "disabled";
         document.getElementById(id + "-link").href = "javascript:";
@@ -38,6 +38,5 @@ function setTitle(movie, id){
         document.getElementById(id + "-year").innerText = movie.Year;
         document.getElementById(id + "-link").className = "";
         document.getElementById(id + "-link").href = "http://www.imdb.com/title/" + movie.imdbID;
-    }
-    
+    }    
 }
