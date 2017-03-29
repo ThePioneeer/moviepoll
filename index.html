@@ -15,10 +15,10 @@
                 <h1>Vali filmid, et luua hääletus.</h1>
             </header>
             <div class="section group">
-                <section class="movie-picker">
+                <section class="movie-picker" id="movie-picker">
                     <div class="col span_1_of_3 movie">
                         <div class="movie-search">
-                                <input id="movie1-input" list="list1" type="text">
+                                <input id="movie1-input" oninput="findMovie('movie1')" list="list1" type="text">
                                 <datalist id="list1">
 
                                 </datalist>
@@ -40,7 +40,7 @@
 
                     <div class="col span_1_of_3 movie">
                         <div class="movie-search">
-                                <input id="movie2-input" list="list2" type="text">
+                                <input id="movie2-input" oninput="findMovie('movie2')" list="list2" type="text">
                                 <datalist id="list2">
 
                                 </datalist>
@@ -62,14 +62,14 @@
 
                     <div class="col span_1_of_3 movie">
                         <div class="movie-search">
-                                <input id="movie3-input" list="list1" type="text">
+                                <input id="movie3-input" oninput="findMovie('movie3')" list="list1" type="text">
                                 <datalist id="list3">
 
                                 </datalist>
                                 <br>                         
                                 <label for="movie3">Film 3</label>
                         </div>
-                        <div class="movie-poster" id="movie1-poster">
+                        <div class="movie-poster" id="movie3-poster">
                             <div class="movie-rating" id="movie3-rating">
                                 -
                             </div>
