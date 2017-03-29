@@ -18,24 +18,26 @@ function httpGetAsync(url, callback, id){
 function findMovie(id) {    
     clearTimeout(delayTimer);
     delayTimer = setTimeout(function(){
-        console.log(id);
         var searchUrl = REQUEST_ADDRESS + document.getElementById(id+ "-input").value;
         httpGetAsync(searchUrl, setTitle, id);
     }, 500);
 }
 
 function setTitle(movie, id){
-    console.log("setTitle " + movie.Title);
     if(movie.Title == undefined){
         document.getElementById(id + "-poster").style.backgroundImage = "";
         document.getElementById(id + "-rating").innerText = "-"
         document.getElementById(id + "-name").innerText = "Vali film...";
         document.getElementById(id + "-year").innerText = "";
+        document.getElementById(id + "-link").className = "disabled";
+        document.getElementById(id + "-link").href = "javascript:";
     }else{
         document.getElementById(id + "-poster").style.backgroundImage = "url('" + movie.Poster + "')";
         document.getElementById(id + "-rating").innerText = movie.imdbRating;
         document.getElementById(id + "-name").innerText = movie.Title;
         document.getElementById(id + "-year").innerText = movie.Year;
+        document.getElementById(id + "-link").className = "";
+        document.getElementById(id + "-link").href = "http://www.imdb.com/title/" + movie.imdbID;
     }
     
 }
