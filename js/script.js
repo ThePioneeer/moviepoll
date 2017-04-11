@@ -51,7 +51,11 @@ function createPoll() {
     var y = document.getElementById("movie2-name").innerText;
     var z = document.getElementById("movie3-name").innerText;
 
-    if(x == "" || y == "" || z == ""){
+    var x_in = document.getElementById("movie1-input").value;
+    var y_in = document.getElementById("movie2-input").value;
+    var z_in = document.getElementById("movie3-input").value;
+
+    if(x_in == "" || y_in == "" || z_in == ""){
         alert("Palun sisesta kõik filmid");
         return false;
     }else{
