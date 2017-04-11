@@ -2,6 +2,7 @@
 //var REQUEST_ADDRESS = "http://www.omdbapi.com/?s=";
 var REQUEST_ADDRESS = "http://www.omdbapi.com/?t=";
 var delayTimer;
+var questionID;
 
 document.getElementById("submit-button").onclick = function(){
     createPoll();
@@ -46,9 +47,9 @@ function setTitle(movie, id){
 }
 
 function createPoll() {
-    var x = document.getElementById("movie3-input").value;
-    var y = document.getElementById("movie2-input").value;
-    var z = document.getElementById("movie1-input").value;
+    var x = document.getElementById("movie1-name").innerText;
+    var y = document.getElementById("movie2-name").innerText;
+    var z = document.getElementById("movie3-name").innerText;
 
     if(x == "" || y == "" || z == ""){
         alert("Palun sisesta kõik filmid");
@@ -57,10 +58,25 @@ function createPoll() {
         var xmlHttp = new XMLHttpRequest();
         xmlHttp.onreadystatechange = function() {
             if(this.readyState == 4 && this.status == 200){
-                document.getElementById("texxt").innerHTML = this.responseText;
+                if(this.responseText == true){
+                    generateUrl();
+                }else{
+                    alert("Midagi läks valesti, proovi uuesti :(");
+                }
             }
         };
-        xmlHttp.open("GET", "test.php?movie1="+z+"&movie2="+y+"&movie3="+x);
-        xmlHttp.send();
+        xmlHttp.open("GET", "createpoll.php?movie1="+x+"&movie2="+y+"&movie3="+z);
+        xmlHttp.send();        
     }
+}
+
+function generateUrl(){
+    var xmlHttp2 = new XMLHttpRequest();
+        xmlHttp2.onreadystatechange = function() {
+            if(this.readyState == 4 && this.status == 200){
+                window.location.replace("vote/?" + this.responseText); 
+            }
+        };
+    xmlHttp2.open("GET", "pollid.php");
+    xmlHttp2.send();
 }

@@ -7,7 +7,7 @@
         $conn = new PDO("mysql:host=$servername;dbname=moviepoll", $username, $password);
         //set PDO error mode to exception
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        echo "Connected";
+        //echo "Connected";
     }
     catch(PDOException $e){
         echo "Connection failed: " . $e->getMessage();
