@@ -3,6 +3,10 @@
 var REQUEST_ADDRESS = "http://www.omdbapi.com/?t=";
 var delayTimer;
 
+document.getElementById("submit-button").onclick = function(){
+    createPoll();
+}
+
 //GET search result
 function httpGetAsync(url, callback, id){
     var xmlHttp = new XMLHttpRequest();
@@ -39,4 +43,24 @@ function setTitle(movie, id){
         document.getElementById(id + "-link").className = "";
         document.getElementById(id + "-link").href = "http://www.imdb.com/title/" + movie.imdbID;
     }    
+}
+
+function createPoll() {
+    var x = document.getElementById("movie3-input").value;
+    var y = document.getElementById("movie2-input").value;
+    var z = document.getElementById("movie1-input").value;
+
+    if(x == "" || y == "" || z == ""){
+        alert("Palun sisesta kõik filmid");
+        return false;
+    }else{
+        var xmlHttp = new XMLHttpRequest();
+        xmlHttp.onreadystatechange = function() {
+            if(this.readyState == 4 && this.status == 200){
+                document.getElementById("texxt").innerHTML = this.responseText;
+            }
+        };
+        xmlHttp.open("GET", "test.php?movie1="+z+"&movie2="+y+"&movie3="+x);
+        xmlHttp.send();
+    }
 }
