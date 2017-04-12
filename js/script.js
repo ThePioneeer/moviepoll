@@ -65,7 +65,7 @@ function createPoll() {
                 if(this.responseText == true){
                     generateUrl();
                 }else{
-                    alert("Midagi läks valesti, proovi uuesti :(");
+                    alert("Midagi läks valesti, proovi uuesti createpoll :(");
                 }
             }
         };

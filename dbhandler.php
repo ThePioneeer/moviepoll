@@ -42,4 +42,16 @@
         $sql = "INSERT INTO poll_answers(movie_name, question_ID, movie_order, created) VALUES('$movieName', '$pollID', '$movieOrder', '$date')";
         $connection->exec($sql);
     }
+
+    function getMovies($pollID, $connection){
+        $sql = "SELECT movie_name, votes FROM poll_answers WHERE question_ID = $pollID";
+        $stmt = $connection->prepare($sql);
+        $stmt->execute();
+
+        $result = $stmt->fetchAll();
+
+        return json_encode($result);        
+    }
+
+    //getMovies(46, $conn);
 ?>
