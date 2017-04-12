@@ -53,5 +53,14 @@
         return json_encode($result);        
     }
 
-    //getMovies(46, $conn);
+    function vote($movie, $poll, $connection){
+        $sql = "UPDATE poll_answers SET votes = votes + 1 WHERE movie_order = '$movie' AND question_ID = '$poll'";
+        $connection->exec($sql);
+
+        $sql = "SELECT votes FROM poll_answers WHERE movie_order = '$movie' AND question_ID = '$poll'";
+        $stmt = $connection->prepare($sql);
+        $stmt->execute();
+
+        return $stmt->fetch(); 
+    }
 ?>

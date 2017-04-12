@@ -1,10 +1,16 @@
 //POLL.JS
 var REQUEST_ADDRESS = "http://www.omdbapi.com/?t=";
+var poll;
+
+    document.getElementById("movie1-vote").onclick = function(){vote(1, poll, update)};
+    document.getElementById("movie2-vote").onclick = function(){vote(2, poll, update)};
+    document.getElementById("movie3-vote").onclick = function(){vote(3, poll, update)};
 
 (function(){
     var href = window.location.href;
-    var poll = href.substring(href.indexOf('?') + 1);
+    poll = href.substring(href.indexOf('?') + 1);
     getMovieVotes(poll, setTitle);
+    
 })();
 
 function getMovieVotes(pollID, callback){
@@ -19,10 +25,10 @@ function getMovieVotes(pollID, callback){
 }
 
 function setTitle(movies){
-    for(var i = 1; i < 4; i++){
-        document.getElementById("movie" + i + "-name").innerText = movies[i-1].movie_name;
-        document.getElementById("movie" + i + "-count").innerText = movies[i-1].votes;
-        setMovieInfo(i, movies[i-1].movie_name);
+    for(var i = 0; i < movies.length; i++){
+        document.getElementById("movie" + (i+1) + "-name").innerText = movies[i].movie_name;
+        document.getElementById("movie" + (i+1) + "-count").innerText = movies[i].votes;
+        setMovieInfo(i+1, movies[i].movie_name);
     }
 }
 
@@ -41,4 +47,20 @@ function setMovieInfo(id, moviename, callback){
     }
     xmlHttp.open("GET", url);
     xmlHttp.send();
+}
+
+
+function vote(movie, poll, callback){
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.onreadystatechange = function() {
+        if(xmlHttp.readyState == 4 && xmlHttp.status == 200){
+            document.getElementById("movie" + movie + "-count").innerText = xmlHttp.response;
+        }
+    }
+    xmlHttp.open("GET", "../vote.php?movie="+movie+"&poll="+poll);
+    xmlHttp.send();
+}
+
+function update(){
+
 }
